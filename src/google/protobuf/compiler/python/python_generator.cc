@@ -390,7 +390,8 @@ void Generator::PrintImports() const {
       if (last_dot_pos == std::string::npos) {
         // NOTE(petya): this is not tested as it would require a protocol buffer
         // outside of any package, and I don't think that is easily achievable.
-        import_statement = "import " + module_name;
+        // import_statement = "import " + module_name;
+        import_statement = "from . import " + module_name;
       } else {
         import_statement = "from " + module_name.substr(0, last_dot_pos) +
                            " import " + module_name.substr(last_dot_pos + 1);
